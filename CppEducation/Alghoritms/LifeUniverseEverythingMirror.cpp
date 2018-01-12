@@ -6,11 +6,11 @@
 /*Solution for the http://www.spoj.com/problems/TEST/ */
 void LifeUniverseEverythingMirror::Run()
 {
-	std::string input;
-	std::cin >> input;
+	string input;
+	cin >> input;
 	while (input != STOP_READ_CONST)
 	{
-		std::cout <<  input << std::endl;
-		std::cin >> input;
+		cout <<  input << endl;
+		cin >> input;
 	}
 }
