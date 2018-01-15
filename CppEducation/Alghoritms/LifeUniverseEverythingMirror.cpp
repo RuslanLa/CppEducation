@@ -1,5 +1,4 @@
-﻿#include "stdafx.h"
-#include "LifeUniverseEverythingMirror.h"
+﻿#include "LifeUniverseEverythingMirror.h"
 #ifndef STOP_READ_CONST
 #define STOP_READ_CONST "42"
 #endif
