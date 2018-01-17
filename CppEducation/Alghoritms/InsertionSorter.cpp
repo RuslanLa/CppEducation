@@ -1,6 +1,6 @@
 ﻿#include "InsertionSorter.h"
 
-std::vector<int32_t> InsertionSorter::sort(std::vector<int32_t> arr)
+std::vector<int32_t> InsertionSorter::sort(std::vector<int32_t>& arr)
 {
 	for (int32_t i = 1; i < arr.size(); i++)
 	{
