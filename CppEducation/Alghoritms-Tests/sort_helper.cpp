@@ -7,7 +7,7 @@ void assertArraySorted(vector<int32_t> sortedArray)
 	{
 		return;
 	}
-	for (int i = 1; i < sortedArray.size(); i++)
+	for (size_t i = 1; i < sortedArray.size(); i++)
 	{
 		ASSERT_TRUE(sortedArray[i] >= sortedArray[i - 1]);
 	}

@@ -16,7 +16,7 @@ TEST(InsertionSortArrayWithDublicatesSorted, SortTests) {
 
 TEST(InsertionSortReversedArraySorted, SortTests) {
     vector<int32_t> arr = vector<int32_t>(100);
-	for (int i = 0 ; i < arr.size(); i++)
+	for (size_t i = 0 ; i < arr.size(); i++)
 	{
 		arr[i] = arr.size() - i;
 	}
