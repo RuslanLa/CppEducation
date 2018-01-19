@@ -136,6 +136,7 @@
     <ClInclude Include="InsertionSortEnumerator.h" />
     <ClInclude Include="InsertionSorter.h" />
     <ClInclude Include="LifeUniverseEverythingMirror.h" />
+    <ClInclude Include="sorter.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

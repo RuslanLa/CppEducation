@@ -4,13 +4,13 @@
 
 TEST(InsertionSortArraySorted, SortTests) {
     vector<int32_t> arr = vector<int32_t>{ 1, 2, 4, 6 };
-	InsertionSorter::sort(arr);
+	InsertionSorter::sortArray(arr);
 	assertArraySorted(arr);
 }
 
 TEST(InsertionSortArrayWithDublicatesSorted, SortTests) {
     vector<int32_t> arr = vector<int32_t>{ 5, 5, 2, 2, 30, 29, 40, 35, 99, 100, 1, 4  };
-	InsertionSorter::sort(arr);
+	InsertionSorter::sortArray(arr);
 	assertArraySorted(arr);
 }
 
@@ -20,12 +20,12 @@ TEST(InsertionSortReversedArraySorted, SortTests) {
 	{
 		arr[i] = arr.size() - i;
 	}
-	InsertionSorter::sort(arr);
+	InsertionSorter::sortArray(arr);
 	assertArraySorted(arr);
 }
 
 TEST(InsertionSortArrayWithDublicatesSortedDesc, SortTests) {
 	vector<int32_t> arr = vector<int32_t>{ 5, 5, 2, 2, 30, 29, 40, 35, 99, 100, 1, 4 };
-	InsertionSorter::descSort(arr);
+	InsertionSorter::sortArrayDesc(arr);
 	assertArraySortedDesc(arr);
 }

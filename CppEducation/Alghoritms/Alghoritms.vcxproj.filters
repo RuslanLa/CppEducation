@@ -50,5 +50,8 @@
     <ClInclude Include="InsertionSortDescEnumerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sorter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

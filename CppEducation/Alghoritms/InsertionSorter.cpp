@@ -15,19 +15,27 @@ void InsertionSorter::sort(insertion_sort_enumerator* enumerator)
 	}
 }
 
-std::vector<int32_t> InsertionSorter::sort(std::vector<int32_t>& arr)
+void InsertionSorter::sort(std::vector<int32_t>& arr)
 {
-    const auto enumerator = new insertion_sort_enumerator(arr);
-	sort(enumerator);
-	delete enumerator;
-	return arr;
+	sortArray(arr);
 }
 
 
-std::vector<int32_t> InsertionSorter::descSort(std::vector<int32_t>& arr)
+void InsertionSorter::descSort(std::vector<int32_t>& arr)
+{
+	sortArrayDesc(arr);
+}
+
+void InsertionSorter::sortArray(std::vector<int32_t>& arr)
+{
+	const auto enumerator = new insertion_sort_enumerator(arr);
+	sort(enumerator);
+	delete enumerator;
+}
+
+void InsertionSorter::sortArrayDesc(std::vector<int32_t>& arr)
 {
 	const auto enumerator = new insertion_sort_desc_enumerator(arr);
 	sort(enumerator);
 	delete enumerator;
-	return arr;
 }

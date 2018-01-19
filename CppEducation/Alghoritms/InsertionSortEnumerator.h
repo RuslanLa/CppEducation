@@ -1,5 +1,4 @@
 #pragma once
-#include "SortType.h"
 class insertion_sort_enumerator
 {
 protected:

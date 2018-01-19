@@ -1,11 +1,14 @@
 ﻿#pragma once
 #include "InsertionSortEnumerator.h"
+#include "sorter.h"
 
-class InsertionSorter
+class InsertionSorter: sorter
 {
 private:
 	static void sort(insertion_sort_enumerator* enumerator);
 public:
-	static std::vector<int32_t> sort(std::vector<int32_t>& arr);
-	static std::vector<int32_t> descSort(std::vector<int32_t>& arr);
+	 void sort(std::vector<int32_t>& arr) override;
+	 void descSort(std::vector<int32_t>& arr) override;
+	 static void sortArray(std::vector<int32_t>& arr);
+	 static void sortArrayDesc(std::vector<int32_t>& arr);
 };
