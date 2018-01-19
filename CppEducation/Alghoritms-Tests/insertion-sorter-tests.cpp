@@ -23,3 +23,9 @@ TEST(InsertionSortReversedArraySorted, SortTests) {
 	InsertionSorter::sort(arr);
 	assertArraySorted(arr);
 }
+
+TEST(InsertionSortArrayWithDublicatesSortedDesc, SortTests) {
+	vector<int32_t> arr = vector<int32_t>{ 5, 5, 2, 2, 30, 29, 40, 35, 99, 100, 1, 4 };
+	InsertionSorter::descSort(arr);
+	assertArraySortedDesc(arr);
+}

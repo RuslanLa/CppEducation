@@ -116,6 +116,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InsertionSortDescEnumerator.cpp" />
+    <ClCompile Include="InsertionSortEnumerator.cpp" />
     <ClCompile Include="InsertionSorter.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
@@ -130,6 +132,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="InsertionSortDescEnumerator.h" />
+    <ClInclude Include="InsertionSortEnumerator.h" />
     <ClInclude Include="InsertionSorter.h" />
     <ClInclude Include="LifeUniverseEverythingMirror.h" />
     <ClInclude Include="stdafx.h" />
