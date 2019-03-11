@@ -1,7 +1,7 @@
-﻿#include "InsertionSorter.h"
-#include "InsertionSortEnumerator.h"
+﻿#include <InsertionSorter.h>
+#include <InsertionSortEnumerator.h>
 #include <memory>
-#include "InsertionSortDescEnumerator.h"
+#include <InsertionSortDescEnumerator.h>
 
 void InsertionSorter::sort(insertion_sort_enumerator* enumerator)
 {

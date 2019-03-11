@@ -21,9 +21,6 @@
     <ClCompile Include="LifeUniverseEverythingMirror.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="InsertionSorter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -38,9 +35,6 @@
     <ClInclude Include="LifeUniverseEverythingMirror.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="InsertionSorter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -48,9 +42,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InsertionSortDescEnumerator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sorter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

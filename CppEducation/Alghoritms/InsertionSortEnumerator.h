@@ -1,5 +1,8 @@
 #pragma once
-class insertion_sort_enumerator
+#include <string>
+#include <iostream>
+#include <vector>
+using namespace std;class insertion_sort_enumerator
 {
 protected:
 	/**

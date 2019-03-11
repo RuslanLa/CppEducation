@@ -1,4 +1,4 @@
-#include "InsertionSortEnumerator.h"
+#include <InsertionSortEnumerator.h>
 insertion_sort_enumerator::insertion_sort_enumerator(vector<int32_t>& vector):_vector(vector)
 {
 	this->max_index_ = vector.size() - 1;
