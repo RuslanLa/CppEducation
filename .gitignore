@@ -16,3 +16,9 @@ CppEducation/.idea/
 CppEducation/Alghoritms/.idea/
 CppEducation/Alghoritms/cmake-build-debug/Alghoritms.cbp
 CppEducation/Alghoritms/cmake-build-debug/
+.idea/workspace.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/encodings.xml
+.idea/CppEducation.iml
+cmake-build-debug/
