@@ -22,31 +22,36 @@ bool tryWriteToResult(string& result, int32_t count, char character, int32_t& po
     return true;
 }
 
+void compress(const string& original, string& result) {
+    int32_t count = 1;
+    int32_t resultIndex = 0;
+    char prev = original[0];
+    for (auto i = 1; i < original.size(); i++) {
+        if (original[i] == prev) {
+            count++;
+            continue;
+        }
+        if (!tryWriteToResult(result, count, prev, resultIndex)) {
+            result = original;
+            return;
+        }
+        prev = original[i];
+        count = 1;
+    }
+    if (!tryWriteToResult(result, count, prev, resultIndex) || resultIndex == original.size()) {
+        result = original;
+        return;
+    }
+    result.resize(resultIndex);
+}
+
 string compress(const string& original){
     if(original.size() <= 3){
         return original;
     }
 
     auto result = string(original.size(), ' ');
-    int32_t count = 1;
-    int32_t resultIndex = 0;
-    char prev = original[0];
-    for(auto i = 1; i< original.size(); i++){
-        if(original[i] == prev) {
-            count++;
-            continue;
-        }
-        auto countView =  to_string(count);
-        if(!tryWriteToResult(result, count, prev, resultIndex)){
-            return original;
-        }
-        prev = original[i];
-        count = 1;
-    }
-    if(!tryWriteToResult(result, count, prev, resultIndex) || resultIndex == original.size()){
-        return original;
-    }
-    result.resize(resultIndex);
+    compress(original, result);
     return result;
 }
 
