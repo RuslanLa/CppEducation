@@ -43,6 +43,9 @@ bool isOneEditAway(const string& first, const string& second, Mode mode){
 }
 
 bool isOneEditAway(string& first, string& second){
+    if(abs(first.size() - second.size() > 1)){
+        return false;
+    }
     Mode changeMode = getMode(first, second);
     return isOneEditAway(first, second, changeMode);
 }
