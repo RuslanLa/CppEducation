@@ -6,6 +6,11 @@
 
 using namespace std;
 
+
+/*
+ * Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
+ */
+
 bool checkFirstRowContainsZeros(vector<vector<int32_t>>& matrix) {
     return any_of(matrix[0].begin(), matrix[0].end(), [](auto value) {
         return value == 0;
@@ -30,8 +35,8 @@ void markZeros(vector<vector<int32_t>>& matrix){
 }
 
 void makeColumnZero(vector<vector<int32_t>>& matrix, int32_t columnNumber){
-    for(auto rowNumber = 0; rowNumber< matrix.size(); rowNumber++){
-        matrix[rowNumber][columnNumber] = 0;
+    for(auto & row : matrix){
+        row[columnNumber] = 0;
     }
 }
 
@@ -61,7 +66,7 @@ void handleZeroRows(vector<vector<int32_t>>& matrix){
 }
 
 void makeZeroMatrix(vector<vector<int32_t>>& matrix){
-    if(matrix.size() == 0){
+    if(matrix.empty() || matrix[0].empty()){
         return;
     }
     bool isFirstRowContainsZero = checkFirstRowContainsZeros(matrix);

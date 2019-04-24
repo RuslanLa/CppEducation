@@ -1,7 +1,3 @@
-//
-// Created by Akvelon on 4/24/2019.
-//
-
 #include "ArrayUtils.h"
 #include <iostream>
 #include <vector>
