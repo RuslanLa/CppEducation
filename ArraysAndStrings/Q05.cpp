@@ -60,4 +60,6 @@ int main(){
     printResult("pales", "pale", true);
     printResult("pale", "bale", true);
     printResult("pale", "bake", false);
+
+    return 0;
 }

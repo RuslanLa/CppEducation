@@ -63,5 +63,7 @@ void print(const string& input){
 int main(){
     print("aabcccccaaa");
     print("aab");
+
+    return 0;
 }
 

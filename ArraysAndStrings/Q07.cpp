@@ -3,17 +3,15 @@
 #include <cstdint>
 #include <cmath>
 #include <iostream>
+#include "ArrayUtils.h"
 
 using namespace std;
 
-void print(const vector<vector<int32_t >>& matrix){
-    for(const auto& row: matrix){
-        for(auto value: row){
-            cout << value << " ";
-        }
-        cout << endl;
-    }
-}
+/*
+ * Rotate Matrix: Given an image represented by an NxN matrix,
+ * where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees.
+ * Can you do this in place?
+ */
 
 void rotate(vector<vector<int32_t >>& matrix, int32_t level, int32_t position) {
     auto size = matrix.size();
@@ -41,16 +39,6 @@ void rotate(vector<vector<int32_t >>& matrix){
     }
 }
 
-vector<vector<int32_t >> createMatrix(int32_t size){
-    vector<vector<int32_t >> matrix (size, vector<int32_t>(size));
-    for(auto i = 0; i< size; i++){
-        for(auto j = 0; j < size; j++){
-            matrix[i][j] = i*size + j;
-        }
-    }
-    return matrix;
-}
-
 int main(){
     try {
         auto matrix = createMatrix(5);
@@ -64,4 +52,6 @@ int main(){
     {
         std::cerr << exc.what();
     }
+
+    return 0;
 }
