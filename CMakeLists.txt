@@ -13,5 +13,6 @@ add_executable(ArraysAndStringsQ06 ArraysAndStrings/Q06.cpp ArraysAndStrings/Arr
 add_executable(ArraysAndStringsQ07 ArraysAndStrings/Q07.cpp ArraysAndStrings/ArrayUtils.cpp ArraysAndStrings/ArrayUtils.h)
 add_executable(ArraysAndStringsQ08 ArraysAndStrings/Q08.cpp ArraysAndStrings/ArrayUtils.cpp ArraysAndStrings/ArrayUtils.h)
 add_executable(ArraysAndStringsQ09 ArraysAndStrings/Q09.cpp)
-add_executable(LinkedListQ01 LinkedList/Q01.cpp LinkedList/LinkedListUtils.h)
-add_executable(LinkedListQ02 LinkedList/Q02.cpp LinkedList/LinkedListUtils.h)
+add_executable(LinkedListQ01 LinkedList/Q01.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
+add_executable(LinkedListQ02 LinkedList/Q02.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
+add_executable(LinkedListQ03 LinkedList/Q03.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
