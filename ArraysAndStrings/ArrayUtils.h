@@ -1,7 +1,3 @@
-//
-// Created by Akvelon on 4/24/2019.
-//
-
 #ifndef CPPEDUCATION_ARRAYUTILS_H
 #define CPPEDUCATION_ARRAYUTILS_H
 

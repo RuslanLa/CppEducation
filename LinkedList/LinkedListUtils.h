@@ -5,7 +5,7 @@
 #include <list>
 
 template<typename T>
-std::ostream& operator<<(std::ostream& out, std::list<T> const& a)
+std::ostream& operator<<(std::ostream& out, std::forward_list<T> const& a)
 {
     out << "[ ";
 
