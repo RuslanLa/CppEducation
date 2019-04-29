@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(CppEducation)
 
 set(CMAKE_CXX_STANDARD 17)
-set(SOURCE_FILES ArraysAndStrings/Q02.cpp ArraysAndStrings/Q01.cpp ArraysAndStrings/Q03.cpp ArraysAndStrings/Q04.cpp ArraysAndStrings/Q05.cpp ArraysAndStrings/Q06.cpp ArraysAndStrings/Q07.cpp ArraysAndStrings/Q08.cpp LinkedList/Q01.cpp)
+set(SOURCE_FILES ArraysAndStrings/Q02.cpp ArraysAndStrings/Q01.cpp ArraysAndStrings/Q03.cpp ArraysAndStrings/Q04.cpp ArraysAndStrings/Q05.cpp ArraysAndStrings/Q06.cpp ArraysAndStrings/Q07.cpp ArraysAndStrings/Q08.cpp LinkedList/Q01.cpp scratches/tuple_printer.cpp)
 
 add_executable(ArraysAndStringsQ02 ArraysAndStrings/Q02.cpp ArraysAndStrings/ArrayUtils.cpp ArraysAndStrings/ArrayUtils.h)
 add_executable(ArraysAndStringsQ01 ArraysAndStrings/Q01.cpp ArraysAndStrings/ArrayUtils.cpp ArraysAndStrings/ArrayUtils.h)
@@ -13,7 +13,8 @@ add_executable(ArraysAndStringsQ06 ArraysAndStrings/Q06.cpp ArraysAndStrings/Arr
 add_executable(ArraysAndStringsQ07 ArraysAndStrings/Q07.cpp ArraysAndStrings/ArrayUtils.cpp ArraysAndStrings/ArrayUtils.h)
 add_executable(ArraysAndStringsQ08 ArraysAndStrings/Q08.cpp ArraysAndStrings/ArrayUtils.cpp ArraysAndStrings/ArrayUtils.h)
 add_executable(ArraysAndStringsQ09 ArraysAndStrings/Q09.cpp)
-add_executable(LinkedListQ01 LinkedList/Q01.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
+add_executable(LinkedListQ01 LinkedList/Q01.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h scratches/tuple_printer.cpp)
 add_executable(LinkedListQ02 LinkedList/Q02.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
 add_executable(LinkedListQ03 LinkedList/Q03.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
 add_executable(LinkedListQ04 LinkedList/Q04.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
+add_executable(TuplePrinter scratches/tuple_printer.cpp)
