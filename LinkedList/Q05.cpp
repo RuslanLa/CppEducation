@@ -54,14 +54,6 @@ void sumForward(std::forward_list<int>::iterator first, std::forward_list<int>::
     result.push_front(sum%10);
 }
 
-int length(std::forward_list<int>& list){
-    int count = 0;
-    for(auto it = list.begin(); it != list.end(); it++){
-        count++;
-    }
-    return count;
-}
-
 int determineBigAndSmall(std::forward_list<int>& big, std::forward_list<int>& small){
     auto bigLength = length(big);
     auto smallLength = length(small);
