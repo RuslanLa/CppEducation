@@ -9,7 +9,7 @@ template <typename T>
 class Node {
 public:
     T data;
-    std::unique_ptr<Node<T>> next;
+    std::shared_ptr<Node<T>> next;
     explicit Node(std::vector<T>&& vector);
     explicit Node(T&& value);
     ~Node();
@@ -36,7 +36,7 @@ Node<T>::Node(std::vector<T> &&vector) {
     this->data = vector.at(0);
     auto prev = this;
     for(auto it = ++vector.begin(); it != vector.end(); it++ ){
-        prev->next = std::make_unique<Node<T>>(std::move(*it));
+        prev->next = std::make_shared<Node<T>>(std::move(*it));
         prev = prev->next.get();
     }
 }

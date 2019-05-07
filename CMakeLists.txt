@@ -19,4 +19,5 @@ add_executable(LinkedListQ03 LinkedList/Q03.cpp LinkedList/LinkedListUtils.h Lin
 add_executable(LinkedListQ04 LinkedList/Q04.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
 add_executable(LinkedListQ05 LinkedList/Q05.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
 add_executable(LinkedListQ06 LinkedList/Q06.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
+add_executable(LinkedListQ07 LinkedList/Q07.cpp LinkedList/LinkedListUtils.h LinkedList/Node.h)
 add_executable(TuplePrinter scratches/tuple_printer.cpp)
