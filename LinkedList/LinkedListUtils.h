@@ -28,12 +28,12 @@ int length(std::forward_list<int>& list){
 }
 
 template <typename T>
-size_t length(Node<T>& list) {
+size_t length(Node<T>* list) {
     size_t count = 0;
-    Node<T>* node = &list;
+    Node<T>* node = list;
     while (node != nullptr) {
         count++;
-        node = node->next != nullptr ? node->next.get() : nullptr;
+        node = node->next;
     }
     return count;
 }

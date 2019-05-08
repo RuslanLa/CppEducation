@@ -1,7 +1,6 @@
 #ifndef CPPEDUCATION_NODE_H
 #define CPPEDUCATION_NODE_H
 
-#include <memory>
 #include <vector>
 #include <iostream>
 
@@ -9,12 +8,14 @@ template <typename T>
 class Node {
 public:
     T data;
-    std::shared_ptr<Node<T>> next;
+    Node<T>* next = nullptr;
     explicit Node(std::vector<T>&& vector);
     explicit Node(T&& value);
     ~Node();
     Node(Node<T>& node);
     Node(Node<T>&& node) noexcept;
+
+    Node<T>* getLast();
 
     Node<T>& operator = (Node<T>&& anotherNode) noexcept;
 };
@@ -36,9 +37,11 @@ Node<T>::Node(std::vector<T> &&vector) {
     this->data = vector.at(0);
     auto prev = this;
     for(auto it = ++vector.begin(); it != vector.end(); it++ ){
-        prev->next = std::make_shared<Node<T>>(std::move(*it));
-        prev = prev->next.get();
+        auto next = new Node<T>(std::move(*it));
+        prev->next = next;
+        prev = prev->next;
     }
+    prev->next = nullptr;
 }
 
 template <typename T>
@@ -65,6 +68,17 @@ Node<T>& Node<T>::operator = (Node<T>&& anotherNode) noexcept {
 template<typename T>
 Node<T>::~Node() {
    std::cout << "destructor has been called for node " << data << std::endl;
+   if(this->next!= nullptr) {
+     //  delete this->next;
+   }
+}
+
+template <typename T>
+Node<T>* Node<T>::getLast() {
+    if (this->next == nullptr) {
+        return this;
+    }
+    return this->next->getLast();
 }
 
 #endif //CPPEDUCATION_NODE_H
