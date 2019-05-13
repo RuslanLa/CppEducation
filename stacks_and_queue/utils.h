@@ -3,6 +3,7 @@
 //
 #include <initializer_list>
 #include <memory>
+#include <stack>
 #include <iostream>
 #ifndef CPPEDUCATION_UTILS_H
 #define CPPEDUCATION_UTILS_H
@@ -18,6 +19,14 @@ template <typename TStack>
 void print( TStack& stack) {
     while (!stack.empty()) {
         std::cout << stack.pop()<<std::endl;
+    }
+}
+
+template <>
+void print<std::stack<int>>(std::stack<int>& stack) {
+    while (!stack.empty()) {
+        std::cout << stack.top() << std::endl;
+        stack.pop();
     }
 }
 
