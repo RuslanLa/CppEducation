@@ -1,19 +1,20 @@
 #include <stack>
 #include <iostream>
+#include "utils.h"
+#include <memory>
 #ifndef CPPEDUCATION_STACKMIN_H
 #define CPPEDUCATION_STACKMIN_H
 
 
 template <typename T>
-class StackMin : public std::stack<T> {
+class StackMin {
 private:
     std::stack<T> minStack;
+    std::stack<T> innerStack;
 public:
     StackMin() = default;
-    StackMin(std::initializer_list<T> list){
-        for(auto it = list.end() - 1; it != list.begin() - 1; it--){
-            this->push(*it);
-        }
+    StackMin(std::initializer_list<T>&& list){
+        fill(*this, std::move(list));
     }
     void push(const T& value){
         if(minStack.empty()){
@@ -23,23 +24,26 @@ public:
             minStack.push(value);
         }
 
-        std::stack<T>::push(value);
+        innerStack.push(value);
     }
 
     T pop() {
         if(minStack.empty()){
             throw std::runtime_error("stack is empty");
         }
-        auto topValue {std::stack<T>::top()};
-        if(std::stack<T>::top() == minStack.top()){
+        auto topValue {innerStack.top()};
+        if(topValue == minStack.top()){
             minStack.pop();
         }
-        std::stack<T>::pop();
+        innerStack.pop();
         return topValue;
     }
 
     T getMin() const {
         return minStack.top();
+    }
+    bool empty(){
+        return innerStack.empty();
     }
 };
 
