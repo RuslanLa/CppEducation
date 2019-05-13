@@ -3,6 +3,7 @@
 //
 #include <initializer_list>
 #include <memory>
+#include <iostream>
 #ifndef CPPEDUCATION_UTILS_H
 #define CPPEDUCATION_UTILS_H
 
@@ -12,4 +13,12 @@ void fill(TStack& stack, std::initializer_list<TValue>&& list){
         stack.push(std::move(*it));
     }
 }
+
+template <typename TStack>
+void print( TStack& stack) {
+    while (!stack.empty()) {
+        std::cout << stack.pop()<<std::endl;
+    }
+}
+
 #endif //CPPEDUCATION_UTILS_H

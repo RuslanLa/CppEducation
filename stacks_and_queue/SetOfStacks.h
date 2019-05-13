@@ -70,7 +70,7 @@ public:
     T popAt(unsigned int stackIndex){
         return leftShift(stackIndex, true);
     }
-    bool isEmpty(){
+    bool empty(){
         return stacks.empty();
     }
 };
