@@ -25,4 +25,5 @@ add_executable(Stack01 stacks_and_queue/Q01.cpp stacks_and_queue/StackMin.h stac
 add_executable(Stack03 stacks_and_queue/Q03.cpp stacks_and_queue/SetOfStacks.h stacks_and_queue/utils.h)
 add_executable(Stack04 stacks_and_queue/Q04.cpp stacks_and_queue/StackBasedQueue.h stacks_and_queue/utils.h)
 add_executable(Stack05 stacks_and_queue/Q05.cpp stacks_and_queue/utils.h)
+add_executable(Stack06 stacks_and_queue/Q06.cpp stacks_and_queue/utils.h)
 add_executable(TuplePrinter scratches/tuple_printer.cpp)
