@@ -26,5 +26,6 @@ add_executable(Stack03 stacks_and_queue/Q03.cpp stacks_and_queue/SetOfStacks.h s
 add_executable(Stack04 stacks_and_queue/Q04.cpp stacks_and_queue/StackBasedQueue.h stacks_and_queue/utils.h)
 add_executable(Stack05 stacks_and_queue/Q05.cpp stacks_and_queue/utils.h)
 add_executable(Stack06 stacks_and_queue/Q06.cpp stacks_and_queue/utils.h)
-add_executable(Tree01 trees_and_graphs/Q01.cpp trees_and_graphs/Tree.h)
+add_executable(TreeTest trees_and_graphs/TreeTest.cpp trees_and_graphs/Tree.h)
+add_executable(Tree01 trees_and_graphs/Q01.cpp trees_and_graphs/Graph.h trees_and_graphs/GraphNode.h)
 add_executable(TuplePrinter scratches/tuple_printer.cpp)

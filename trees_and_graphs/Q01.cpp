@@ -1,27 +1,38 @@
-#include "Tree.h"
 #include <iostream>
+#include "Graph.h"
+
+/**
+ * Route Between Nodes: Given a directed graph, design an algorithm to find out whether there is a route between two nodes.
+ */
+
+
+template <typename TGraph>
+TGraph createGraph(){
+    TGraph graph {"0","1", "2", "3", "4", "5"};
+    graph.bind(0, 1);
+    graph.bind(0, 5);
+    graph.bind(0, 4);
+    graph.bind(1, 3);
+    graph.bind(3, 4);
+    return graph;
+}
+
+template <typename TGraph>
+void test(TGraph& graph, int from, int to){
+    std::cout << "presence of path from " << from << " to "<< to << " is " << (graph.existPath(from, to) ? "true" : "false") << std::endl;
+}
 
 int main(){
-    std::cout << "regular tree traversal:"<<std::endl;
-    Node<int> node {1};
-    node.insertNodes({2, 3, 4, 5, 6});
-    node.getNodes().back().insertNodes({7, 8, 9});
-    std::function<void (int)> print = [](int value) {
-        std::cout << value << std::endl;
-    };
-    traverse(node, print);
+    auto directedGraph = createGraph<Graph<int>>();
+    std::cout << "detecting pathes for a directed graph: "<<  directedGraph;
+    test(directedGraph, 0, 3);
+    test(directedGraph, 3, 1);
+    test(directedGraph, 5, 5);
 
-    BinaryTreeNode<int> binaryHead {4};
-    binaryHead.insertNode(2, Location::Left);
-    binaryHead.insertNode(6, Location::Right);
-    binaryHead.getLeft().insertNode(1, Location::Left);
-    binaryHead.getLeft().insertNode(3, Location::Right);
-    binaryHead.getRight().insertNode(5, Location::Left);
-    binaryHead.getRight().insertNode(7, Location::Right);
-    std::cout << "binary tree in order:"<<std::endl;
-    inOrderTraversal(&binaryHead, print);
-    std::cout << "binary tree pre order:"<<std::endl;
-    preOrderTraversal(&binaryHead, print);
-    std::cout << "binary tree post order:"<<std::endl;
-    postOrderTraversal(&binaryHead, print);
+
+    auto indirectedGraph = createGraph<IndirectedGraph<int>>();
+    std::cout << "detecting pathes for a indirected graph: "<<  indirectedGraph;
+    test(indirectedGraph, 0, 3);
+    test(indirectedGraph, 3, 1);
+    test(indirectedGraph, 5, 5);
 }
