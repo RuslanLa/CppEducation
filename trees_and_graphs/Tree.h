@@ -140,23 +140,69 @@ struct TraversingNodeInfo {
 };
 
 template <typename T>
-int getMaxDepth(const BinaryTreeNode<T>& node){
-    std::queue<TraversingNodeInfo<T>> traversingNodes {};
-    traversingNodes.push(TraversingNodeInfo<T>{&node, 0});
-    int maxDepth = 0;
-    while (!traversingNodes.empty()){
-        auto& current = traversingNodes.front();
-        if(current.depth > maxDepth){
-            maxDepth = current.depth;
+void traverseInBreadth(const BinaryTreeNode<T>& node, std::function<void (const BinaryTreeNode<T>*)> onNodeEnter,  std::function<void (int)> onNewLevelEnter){
+    std::queue<TraversingNodeInfo<T>> traversalQueue {};
+    traversalQueue.push(TraversingNodeInfo<T>{&node, 0});
+    int currentLevel = -1;
+    while (!traversalQueue.empty()){
+        auto& current = traversalQueue.front();
+        if(current.depth != currentLevel){
+            onNewLevelEnter(current.depth);
+            currentLevel = current.depth;
         }
+        onNodeEnter(current.node);
         if(current.node->hasLeft()){
-            traversingNodes.push(TraversingNodeInfo<T>{&current.node->getLeft(), current.depth+1});
+            traversalQueue.push(TraversingNodeInfo<T>{&current.node->getLeft(), current.depth+1});
         }
         if(current.node->hasRight()){
-            traversingNodes.push(TraversingNodeInfo<T>{&current.node->getRight(), current.depth+1});
+            traversalQueue.push(TraversingNodeInfo<T>{&current.node->getRight(), current.depth+1});
         }
-        traversingNodes.pop();
+        traversalQueue.pop();
     }
+}
+
+template <typename T>
+void traverseInBreadth(const BinaryTreeNode<T>& node, std::function<void (const BinaryTreeNode<T>*)> onNodeEnter){
+    return traverseInBreadth<T>(node, onNodeEnter, [](int){});
+}
+
+template <typename T>
+void traverseInBreadth(const BinaryTreeNode<T>& node, std::function<void (int)> onNewLevelEnter){
+    return traverseInBreadth<T>(node, [](const BinaryTreeNode<T>*){}, onNewLevelEnter);
+}
+
+template <typename T>
+int getMaxDepth(const BinaryTreeNode<T>& node){
+    int maxDepth = 0;
+    auto onNewLevelEnter = [&maxDepth](int levelNum){
+        if(levelNum > maxDepth) {
+            maxDepth = levelNum;
+        }
+    };
+    traverseInBreadth(node, onNewLevelEnter);
     return maxDepth;
+}
+
+template <typename T>
+BinaryTreeNode<T> buildMinHeight(const std::vector<T>& data, size_t from, size_t to) {
+    size_t middleIndex {(to + from)/2};
+    T middleValue { data.at(middleIndex) };
+    auto head {BinaryTreeNode<T> {middleValue}};
+    if(from == to){
+        return head;
+    }
+    if(middleIndex != from) {
+        head.insertNode(buildMinHeight(data, from, middleIndex - 1), Location::Left);
+    }
+    if(middleIndex != to){
+        head.insertNode(buildMinHeight(data, middleIndex+1, to), Location::Right);
+    }
+    return head;
+}
+
+template <typename T>
+BinaryTreeNode<T> buildMinHeight(const std::vector<T>& data){
+    auto head {buildMinHeight(data, 0, data.size()-1)};
+    return head;
 }
 #endif //CPPEDUCATION_TREE_H
