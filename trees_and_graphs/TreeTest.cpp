@@ -14,10 +14,10 @@ int main(){
     BinaryTreeNode<int> binaryHead {4};
     binaryHead.insertNode(2, Location::Left);
     binaryHead.insertNode(6, Location::Right);
-    binaryHead.getLeft().insertNode(1, Location::Left);
-    binaryHead.getLeft().insertNode(3, Location::Right);
-    binaryHead.getRight().insertNode(5, Location::Left);
-    binaryHead.getRight().insertNode(7, Location::Right);
+    binaryHead.getLeft()->insertNode(1, Location::Left);
+    binaryHead.getLeft()->insertNode(3, Location::Right);
+    binaryHead.getRight()->insertNode(5, Location::Left);
+    binaryHead.getRight()->insertNode(7, Location::Right);
     std::cout << "binary tree in order:"<<std::endl;
     inOrderTraversal(&binaryHead, print);
     std::cout << "binary tree pre order:"<<std::endl;

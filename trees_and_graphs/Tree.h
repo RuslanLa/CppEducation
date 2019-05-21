@@ -79,12 +79,12 @@ public:
         return this->left!= nullptr;
     }
 
-    BinaryTreeNode& getLeft() const {
-        return *this->left;
+    BinaryTreeNode* getLeft() const {
+        return this->left.get();
     }
 
-    BinaryTreeNode& getRight() const {
-        return *this->right;
+    BinaryTreeNode* getRight() const {
+        return this->right.get();
     }
     bool hasRight() const {
         return this->right != nullptr;
@@ -94,9 +94,9 @@ public:
 template <typename T>
 void inOrderTraversal(BinaryTreeNode<T>* node, std::function<void (T)> callback){
     if(node != nullptr){
-        inOrderTraversal(&(node->getLeft()), callback);
+        inOrderTraversal(node->getLeft(), callback);
         callback(node->getValue());
-        inOrderTraversal(&(node->getRight()), callback);
+        inOrderTraversal(node->getRight(), callback);
     }
 }
 
@@ -111,16 +111,16 @@ template <typename T>
 void preOrderTraversal(BinaryTreeNode<T>* node, std::function<void (T)> callback){
     if(node != nullptr){
         callback(node->getValue());
-        preOrderTraversal(&(node->getLeft()), callback);
-        preOrderTraversal(&(node->getRight()), callback);
+        preOrderTraversal(node->getLeft(), callback);
+        preOrderTraversal(node->getRight(), callback);
     }
 }
 
 template <typename T>
 void postOrderTraversal(BinaryTreeNode<T>* node, std::function<void (T)> callback){
     if(node != nullptr){
-        postOrderTraversal(&(node->getLeft()), callback);
-        postOrderTraversal(&(node->getRight()), callback);
+        postOrderTraversal(node->getLeft(), callback);
+        postOrderTraversal(node->getRight(), callback);
         callback(node->getValue());
     }
 }
@@ -152,10 +152,10 @@ void traverseInBreadth(const BinaryTreeNode<T>& node, std::function<void (const 
         }
         onNodeEnter(current.node);
         if(current.node->hasLeft()){
-            traversalQueue.push(TraversingNodeInfo<T>{&current.node->getLeft(), current.depth+1});
+            traversalQueue.push(TraversingNodeInfo<T>{current.node->getLeft(), current.depth+1});
         }
         if(current.node->hasRight()){
-            traversalQueue.push(TraversingNodeInfo<T>{&current.node->getRight(), current.depth+1});
+            traversalQueue.push(TraversingNodeInfo<T>{current.node->getRight(), current.depth+1});
         }
         traversalQueue.pop();
     }
