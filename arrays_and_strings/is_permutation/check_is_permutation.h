@@ -4,7 +4,7 @@
 
 // Check if the two strings have identical character counts.
 //assuming that
-bool CheckIsPermutation(std::string_view first_str, std::string_view second_str) {
+bool CheckIsPermutation(const std::string_view first_str, const std::string_view second_str) {
     std::map<char, size_t> character_entrance{};
     for (auto character : first_str) {
         ++character_entrance[character];
