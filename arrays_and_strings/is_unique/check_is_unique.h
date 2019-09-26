@@ -5,7 +5,7 @@
 // Implement an algorithm to determine if a string has all unique characters.
 // What if you cannot use additional data structures?
 
-// works for any ASCII characters using O(N) additional memory with O(n) time
+// works for any ASCII characters using O(1) additional memory with O(n) time
 // complexity
 inline bool CheckIsUniqueWithSet(std::string_view str) {
     std::unordered_set<char> characters_bag{};
