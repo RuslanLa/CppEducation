@@ -18,3 +18,17 @@ inline bool CheckIsUniqueWithSet(std::string_view str) {
         return true;
     });
 }
+
+
+// works only for ENGLISH Upper case ASCII characters using O(1) memory and O(n) time complexity
+inline bool CheckIsUniqueWithBitset(std::string_view str){
+    std::bitset<26> characters_bag {};
+    return std::all_of(str.begin(), str.end(), [&characters_bag](const char character) {
+        auto position = character - 'A';
+        if (characters_bag.test(position)) {
+            return false;
+        }
+        characters_bag.flip(position);
+        return true;
+    });
+}
