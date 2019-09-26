@@ -1,0 +1,4 @@
+include_directories("contrib")
+add_executable(test_is_one_edit_away test.cpp)
+target_link_libraries(test_is_one_edit_away Catch2::Catch2)
+catch_discover_tests(test_is_one_edit_away)
