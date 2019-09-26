@@ -1,5 +1,8 @@
 #pragma once
 #include <string_view>
+// There are three types of edits that can be performed on strings: insert a character, remove a
+// character, or replace a character.
+// Given two strings, write a function to check if they are one edit (or zero edits) away.
 
 bool CheckIsOneEditAway(std::string_view first, std::string_view second) {
     auto& bigger = first.size() > second.size() ? first : second;
