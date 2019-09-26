@@ -1,3 +1,4 @@
 add_subdirectory(is_unique)
 add_subdirectory(is_permutation)
 add_subdirectory(urlify)
+add_subdirectory(is_palindromes_permutation)
