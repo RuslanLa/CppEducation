@@ -27,5 +27,4 @@ inline void Urlify(std::string* str) {
         *write_pointer = '%';
         --write_pointer;
     }
-    return;
 }
