@@ -1,1 +1,2 @@
 add_subdirectory(is_unique)
+add_subdirectory(is_permutation)
