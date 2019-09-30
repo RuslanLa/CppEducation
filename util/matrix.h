@@ -3,6 +3,7 @@
 #include <initializer_list>
 #include <string>
 #include <iostream>
+#include "matrix_column_iter.h"
 
 template <typename TData>
 std::vector<TData> Flatten(const std::initializer_list<std::initializer_list<TData>>& data) {
@@ -60,6 +61,39 @@ public:
 
     decltype(data_.cend()) end() const {
         return data_.end();
+    }
+
+    decltype(data_.begin()) RowBegin(size_t row) {
+        return data_.begin() + row * columns_;
+    }
+
+    const decltype(data_.cbegin()) RowBegin(size_t row) const {
+        return data_.begin() + row * columns_;
+    }
+
+    decltype(data_.end()) RowEnd(size_t row) {
+        return data_.begin() + (row + 1) * columns_;
+    }
+
+    const decltype(data_.cend()) RowEnd(size_t row) const {
+        return data_.begin() + (row + 1) * columns_;
+    }
+
+    ColumnIter<TData> ColumnBegin(size_t column) {
+        return ColumnIter {&data_, column, columns_};
+    }
+
+    ColumnIter<TData> ColumnEnd(size_t column) {
+        return ColumnIter {&data_, column, columns_} + rows_;
+    }
+
+
+    const ColumnIter<TData> ColumnBegin(size_t column) const {
+        return ColumnIter {&data_, column, columns_};
+    }
+
+    const ColumnIter<TData> ColumnEnd(size_t column) const {
+        return ColumnIter {&data_, column, columns_} + rows_;
     }
 };
 
