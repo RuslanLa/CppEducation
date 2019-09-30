@@ -7,4 +7,5 @@ include(cmake/Catch.cmake)
 
 find_package(Catch2 REQUIRED)
 include_directories("contrib")
+include_directories("util")
 add_subdirectory(arrays_and_strings)

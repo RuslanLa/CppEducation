@@ -1,4 +1,5 @@
 include_directories("contrib")
+include_directories("util")
 add_executable(test_matrix_rotation test.cpp)
 target_link_libraries(test_matrix_rotation Catch2::Catch2)
 catch_discover_tests(test_matrix_rotation)
