@@ -21,5 +21,5 @@ TEST_CASE("With simple custom linked list") {
     LinkedListNode<int>::NodePtr head = MakeList({1, 2, 3, 4, 2, 3, 5, 4});
     RemoveDuplicatesWithSimpleLinkedListNode(head.get());
     LinkedListNode<int>::NodePtr expected = MakeList({1, 2, 3, 4, 5});
-    REQUIRE(true);
+    REQUIRE(*head == *expected);
 }
