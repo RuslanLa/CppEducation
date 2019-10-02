@@ -2,31 +2,35 @@
 #include <iostream>
 #include <memory>
 
+
+// memory management isn't a part of this data structure (only to make this data structure look
+// like "classical" linked list
+// MEMORY LEAKS ARE POSSIBLE
+// ALSO PROPERLY CLASS DESIGN AND COPY CONSTRUCTOR WHICH MAKES REAL COPY - ISN'T THE PART OF TASK
 template <typename T>
 struct LinkedListNode {
-    using NodePtr = std::unique_ptr<LinkedListNode<T>>;
-    NodePtr Next = nullptr;
+    LinkedListNode<T>* Next = nullptr;
     T Value;
 };
 
 template <typename T>
-std::unique_ptr<LinkedListNode<T>> MakeList(std::initializer_list<T> inializer_list) {
+LinkedListNode<T> MakeList(std::initializer_list<T> inializer_list) {
     if (inializer_list.size() == 0) {
         throw std::runtime_error("MakeList requires non-empty inializer_list");
     }
 
     auto it = inializer_list.begin();
-    auto head = std::make_unique<LinkedListNode<T>>();
-    head->Value = *it;
-    head->Next = nullptr;
-    auto current = head.get();
+    LinkedListNode<T> head {};
+    head.Value = *it;
+    head.Next = nullptr;
+    auto current = &head;
     ++it;
 
     while (it!= inializer_list.end()) {
-        current->Next = std::make_unique<LinkedListNode<T>>();
+        current->Next = new LinkedListNode<T>();
         current->Next->Value = *it;
         current->Next->Next = nullptr;
-        current = current->Next.get();
+        current = current->Next;
         ++it;
     }
 
@@ -50,4 +54,5 @@ std::ostream& operator<<(std::ostream& os, const LinkedListNode<TData> node) {
         node_pointer = node_pointer->Next;
     }
     os << "}";
+    return os;
 }

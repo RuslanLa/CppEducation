@@ -17,7 +17,7 @@ void DeleteMiddleNode(LinkedListNode<TData>* node) {
     while (current->Next != nullptr) {
         current->Value = std::move(current->Next->Value);
         prev = current;
-        current = current->Next.get();
+        current = current->Next;
     }
     prev->Next = nullptr;
 }

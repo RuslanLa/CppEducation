@@ -7,7 +7,7 @@ LinkedListNode<TData>* MoveToKSteps(LinkedListNode<TData>* head, size_t k) {
     auto counter = 1;
     auto current = head;
     while (current->Next != nullptr && counter < k) {
-        current = current->Next.get();
+        current = current->Next;
         ++counter;
     }
 
@@ -29,8 +29,8 @@ LinkedListNode<TData>* FindKthToLast(LinkedListNode<TData>* head, size_t k) {
     auto kth = head;
 
     while (runner->Next != nullptr) {
-        runner = runner->Next.get();
-        kth = kth->Next.get();
+        runner = runner->Next;
+        kth = kth->Next;
     }
     return kth;
 }

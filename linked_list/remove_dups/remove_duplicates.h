@@ -39,7 +39,7 @@ void RemoveDuplicatesWithSimpleLinkedListNode(LinkedListNode<TData>* first_node)
         }
         else {
             data_set.insert(current->Next->Value);
-            current = current->Next.get();
+            current = current->Next;
         }
     }
 }
