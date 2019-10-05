@@ -98,7 +98,7 @@ void SumListsOfEqualLength(const LinkedListNode<int>* first, const LinkedListNod
         result_stack->push(result_it);
     }
 }
-
+#
 LinkedListNode<int> PadList(LinkedListNode<int>* list, size_t count) {
     if (count == 0) {
         return *list;

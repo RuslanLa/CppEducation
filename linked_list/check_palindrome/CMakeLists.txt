@@ -1,0 +1,4 @@
+include_directories("contrib")
+add_executable(test_list_is_palindrome test.cpp)
+target_link_libraries(test_list_is_palindrome Catch2::Catch2)
+catch_discover_tests(test_list_is_palindrome)
