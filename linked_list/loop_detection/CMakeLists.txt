@@ -1,0 +1,4 @@
+include_directories("contrib")
+add_executable(test_list_loop_detection test.cpp)
+target_link_libraries(test_list_loop_detection Catch2::Catch2)
+catch_discover_tests(test_list_loop_detection)
